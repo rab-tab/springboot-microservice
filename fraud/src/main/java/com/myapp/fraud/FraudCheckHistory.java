@@ -1,4 +1,4 @@
-package com.myapp.customer;
+package com.myapp.fraud;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,13 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+public class FraudCheckHistory {
     @Id
     @SequenceGenerator(
             name="customer_id_sequence",
@@ -24,8 +25,8 @@ public class Customer {
             generator = "customer_id_sequence"
     )
     private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private Integer customerId;
+    private Boolean isFraudster;
+    private LocalDateTime createdAt;
 
 }
